@@ -113,7 +113,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    agenix
     starship
     btop
     htop
@@ -151,10 +150,26 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
+  programs.git.enable = true;
+  programs.zsh = {
+    enable = true;
+    ohMyZsh = {
+      enable = true;
+      plugins = [
+        "git"
+        "kubectl"
+        "docker"
+      ];
+    };
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+  };
+  programs.nix-ld.enable = true;
 
   # List services that you want to enable:
 
