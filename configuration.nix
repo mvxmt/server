@@ -2,7 +2,9 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  libt = import ./lib {inherit pkgs;};
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -19,6 +21,7 @@
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   networking.hostName = "mvxmt"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -107,10 +110,11 @@
     shell = pkgs.zsh;
     description = "Tyler";
     extraGroups = ["networkmanager" "wheel" "docker"];
-    openssh.authorizedKeys.keys = [
-      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCgUctJd0qHuvUh+2QDEzcHbeEoNaDoEDmTl5XgcfdJw+Qr9f/EYv492xcqFdhW5ds9NSPxUh11h147LPS8dkTMXGXf+8DZZfIT47X3soG0L9KblDFhwP0AlgcqFmNQz+QONC6Rxdnli9nnlX5k8sqd9zEYiDG5DPSOa+5kvjnr6uW7RmYeW5RNCxeXXglkUF7rvcGKvZVkOic9DEmd7CLDin/MPMZMsKWu8MQWNeE596yQv7ynpRwQ65C2Yw5Cr51wAO6e/79AUUk1OQfj9IolPDmVc3ouhN+DeG+8T+NAKVMDcIAmWs8n03FxHSamjpnzD+9u4CotxfHGdVcH9tXstMIKxa7I+oAir0M9d3wVrGxVOVTLlhnHBbzQpdx8FlkTOiFJp2aYEFmspEVBSVzefce0DCXeZ8wlPKfVbo+UGL+hNs87B9wf6474sGMdDdLjHm0meR90sAtByUC8fDGuNXmLYLzxBLew9EWoikxfHNLWLCeqMbeyTJk4Hs5vGZ8= ninjawarrior1337@treelarfedora"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN6WGJITvGiZNyl5/yRZPTv7V8lEi8n0YSovR4J4uF2g ninjawarrior1337@Tylers-MacBook-Pro.local"
-      "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFe8YT4kH6tzZzz0jAtbNEQvgq1RG1TAJyB9eTdsZXX7CTtchMCXb6MBsfU0K6nPFmSm7qkayzK2elp9iRd+HYk= treelarpa"
+    openssh.authorizedKeys.keyFiles = [
+      (libt.fetchGithubKeys {
+        username = "ninjawarrior1337";
+        hash = pkgs.lib.fakeHash;
+      })
     ];
   };
 

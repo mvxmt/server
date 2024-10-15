@@ -7,7 +7,6 @@
   inputs.treelarv3.inputs.nixpkgs.follows = "nixpkgs";
 
   inputs.flake-utils.url = "github:numtide/flake-utils";
-  inputs.flake-utils.inputs.nixpkgs.follows = "nixpkgs";
 
   outputs = all @ {
     self,
