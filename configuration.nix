@@ -180,6 +180,7 @@
     syntaxHighlighting.enable = true;
   };
   programs.nix-ld.enable = true;
+  security.sudo.wheelNeedsPassword = false;
 
   # List services that you want to enable:
 
