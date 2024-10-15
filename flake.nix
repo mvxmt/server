@@ -38,7 +38,13 @@
       buildInputs = with pkgs; [
         bfg-repo-cleaner
         just
+        nurl
       ];
     };
+
+    packages.getKeys = pkgs.writeShellScriptBin "getKeys" ''
+      USER=$1
+      nix hash to-sri --type sha256 $(nix-prefetch-url https://github.com/$USER.keys)
+    '';
   });
 }
