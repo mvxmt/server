@@ -81,8 +81,17 @@
     isNormalUser = true;
     description = "Mia ***REMOVED***";
     extraGroups = ["networkmanager" "wheel" "docker"];
-    packages = with pkgs; [
-      #  thunderbird
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHPkbJ882xpsdNG81NnRjiJd7osIGhiOK5owTM3sTDrV jordan@mias-air.lan"
+    ];
+  };
+
+  users.users.kiki = {
+    isNormalUser = true;
+    description = "Michael ***REMOVED***";
+    extraGroups = ["networkmanager" "wheel" "docker"];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGI5jrNra9AdBWZ17y9fbcSDkl8ZIR7wPXamdWR5Tiee kiki@Shamone"
     ];
   };
 
@@ -140,6 +149,7 @@
     iperf3
     dive
     ncdu
+    nvtopPackages.full
   ];
 
   virtualisation.docker = {
