@@ -13,6 +13,12 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+
   networking.hostName = "mvxmt"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -150,6 +156,9 @@
     dive
     ncdu
     nvtopPackages.full
+    (pkgs.writeShellScriptBin "nixos-distro-sync" ''
+      sudo nixos-rebuild --flake github:mvxmt/server#mvxmt switch --refresh
+    '')
   ];
 
   virtualisation.docker = {
