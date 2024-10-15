@@ -6,14 +6,19 @@
   inputs.treelarv3.url = "github:ninjawarrior1337/treelarv3";
   inputs.treelarv3.inputs.nixpkgs.follows = "nixpkgs";
 
+  inputs.flake-utils.url = "github:numtide/flake-utils";
+  inputs.flake-utils.inputs.nixpkgs.follows = "nixpkgs";
+
   outputs = all @ {
     self,
     nixpkgs,
     treelarv3,
+    flake-utils,
     ...
   }: {
     # Used with `nixos-rebuild --flake .#<hostname>`
     # nixosConfigurations."<hostname>".config.system.build.toplevel must be a derivation
+    
     nixosConfigurations.mvxmt = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -25,5 +30,16 @@
         }
       ];
     };
-  };
+  } // flake-utils.lib.eachDefaultSystem (system: let 
+    pkgs = import nixpkgs {
+      inherit system;
+    };
+  in{
+    devShells.default = pkgs.mkShell {
+      buildInputs = with pkgs; [
+        bfg-repo-cleaner
+        just
+      ];
+    };
+  });
 }

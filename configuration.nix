@@ -86,7 +86,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.miaf = {
     isNormalUser = true;
-    description = "Mia ***REMOVED***";
+    description = "Mia";
     extraGroups = ["networkmanager" "wheel" "docker"];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHPkbJ882xpsdNG81NnRjiJd7osIGhiOK5owTM3sTDrV jordan@mias-air.lan"
@@ -95,7 +95,7 @@
 
   users.users.kiki = {
     isNormalUser = true;
-    description = "Michael ***REMOVED***";
+    description = "Michael";
     extraGroups = ["networkmanager" "wheel" "docker"];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGI5jrNra9AdBWZ17y9fbcSDkl8ZIR7wPXamdWR5Tiee kiki@Shamone"
@@ -105,7 +105,7 @@
   users.users.ninjawarrior1337 = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    description = "Tyler ***REMOVED***";
+    description = "Tyler";
     extraGroups = ["networkmanager" "wheel" "docker"];
     openssh.authorizedKeys.keys = [
       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCgUctJd0qHuvUh+2QDEzcHbeEoNaDoEDmTl5XgcfdJw+Qr9f/EYv492xcqFdhW5ds9NSPxUh11h147LPS8dkTMXGXf+8DZZfIT47X3soG0L9KblDFhwP0AlgcqFmNQz+QONC6Rxdnli9nnlX5k8sqd9zEYiDG5DPSOa+5kvjnr6uW7RmYeW5RNCxeXXglkUF7rvcGKvZVkOic9DEmd7CLDin/MPMZMsKWu8MQWNeE596yQv7ynpRwQ65C2Yw5Cr51wAO6e/79AUUk1OQfj9IolPDmVc3ouhN+DeG+8T+NAKVMDcIAmWs8n03FxHSamjpnzD+9u4CotxfHGdVcH9tXstMIKxa7I+oAir0M9d3wVrGxVOVTLlhnHBbzQpdx8FlkTOiFJp2aYEFmspEVBSVzefce0DCXeZ8wlPKfVbo+UGL+hNs87B9wf6474sGMdDdLjHm0meR90sAtByUC8fDGuNXmLYLzxBLew9EWoikxfHNLWLCeqMbeyTJk4Hs5vGZ8= ninjawarrior1337@treelarfedora"
