@@ -21,7 +21,7 @@ in {
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   networking.hostName = "mvxmt"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -153,7 +153,6 @@ in {
     git
     tmux
     mosh
-    borgbackup
     nethogs
     lsof
     micro
@@ -161,6 +160,7 @@ in {
     dive
     ncdu
     nvtopPackages.full
+    distrobox
     (pkgs.writeShellScriptBin "nixos-distro-sync" ''
       sudo nixos-rebuild --flake github:mvxmt/server#mvxmt switch --refresh
     '')
