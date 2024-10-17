@@ -6,7 +6,7 @@
     ];
 
     text = ''
-      rtcwake --date +300min
+      rtcwake -m mem --date +300min
     '';
   };
 in {
