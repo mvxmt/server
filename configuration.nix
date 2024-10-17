@@ -11,6 +11,7 @@ in {
     ./nvidia.nix
     ./postgres.nix
     ./autosleep.nix
+    ./caddy.nix
   ];
 
   # Bootloader.
