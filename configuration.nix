@@ -10,6 +10,7 @@ in {
     ./hardware-configuration.nix
     ./nvidia.nix
     ./postgres.nix
+    ./autosleep.nix
   ];
 
   # Bootloader.
@@ -103,7 +104,7 @@ in {
     isNormalUser = true;
     description = "Michael";
     extraGroups = ["networkmanager" "wheel" "docker"];
-    openssh.authorizedKeys.keys = [
+    openssh.authorizedKeys.keyFiles = [
       (libt.fetchGithubKeys {
         username = "viewtifultiger";
         hash = "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
