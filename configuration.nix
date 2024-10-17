@@ -183,6 +183,7 @@ in {
     distrobox
     duf
     dua
+    certbot
     (pkgs.writeShellScriptBin "nixos-distro-sync" ''
       sudo nixos-rebuild --flake github:mvxmt/server#mvxmt switch --refresh
     '')
