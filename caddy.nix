@@ -1,5 +1,5 @@
 {config, ...}: let
-  certsPath = "${config.users.users.ninjawarrior1337.home}/.lego/certificates";
+  certsPath = "${config.services.caddy.dataDir}";
 in {
   services.caddy = {
     enable = true;
