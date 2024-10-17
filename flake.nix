@@ -14,37 +14,39 @@
     treelarv3,
     flake-utils,
     ...
-  }: {
-    # Used with `nixos-rebuild --flake .#<hostname>`
-    # nixosConfigurations."<hostname>".config.system.build.toplevel must be a derivation
-    
-    nixosConfigurations.mvxmt = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        treelarv3.nixosModules.default
-        ./configuration.nix
+  }:
+    {
+      # Used with `nixos-rebuild --flake .#<hostname>`
+      # nixosConfigurations."<hostname>".config.system.build.toplevel must be a derivation
 
-        {
-          services.treelarv3.enable = true;
-        }
-      ];
-    };
-  } // flake-utils.lib.eachDefaultSystem (system: let 
-    pkgs = import nixpkgs {
-      inherit system;
-    };
-  in{
-    devShells.default = pkgs.mkShell {
-      buildInputs = with pkgs; [
-        bfg-repo-cleaner
-        just
-        nurl
-      ];
-    };
+      nixosConfigurations.mvxmt = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          treelarv3.nixosModules.default
+          ./configuration.nix
 
-    packages.getKeys = pkgs.writeShellScriptBin "getKeys" ''
-      USER=$1
-      nix hash to-sri --type sha256 $(nix-prefetch-url https://github.com/$USER.keys)
-    '';
-  });
+          {
+            services.treelarv3.enable = true;
+          }
+        ];
+      };
+    }
+    // flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = import nixpkgs {
+        inherit system;
+      };
+    in {
+      devShells.default = pkgs.mkShell {
+        buildInputs = with pkgs; [
+          bfg-repo-cleaner
+          just
+          nurl
+        ];
+      };
+
+      packages.hashKeys = pkgs.writeShellScriptBin "getKeys" ''
+        USER=$1
+        nix hash convert --hash-algo sha256 $(nix-prefetch-url https://github.com/$USER.keys)
+      '';
+    });
 }

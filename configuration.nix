@@ -91,8 +91,11 @@ in {
     isNormalUser = true;
     description = "Mia";
     extraGroups = ["networkmanager" "wheel" "docker"];
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHPkbJ882xpsdNG81NnRjiJd7osIGhiOK5owTM3sTDrV jordan@mias-air.lan"
+    openssh.authorizedKeys.keyFiles = [
+      (libt.fetchGithubKeys {
+        username = "Plixelated";
+        hash = "sha256-ff4A0dwzoXgoYlJiDIRJ0/tz2CdG/RtNVNA6xWiV6Fg=";
+      })
     ];
   };
 
@@ -101,7 +104,23 @@ in {
     description = "Michael";
     extraGroups = ["networkmanager" "wheel" "docker"];
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGI5jrNra9AdBWZ17y9fbcSDkl8ZIR7wPXamdWR5Tiee kiki@Shamone"
+      (libt.fetchGithubKeys {
+        username = "viewtifultiger";
+        hash = "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
+      })
+    ];
+  };
+
+  users.users.valmm = {
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    description = "Valerie";
+    extraGroups = ["networkmanager" "wheel" "docker"];
+    openssh.authorizedKeys.keyFiles = [
+      (libt.fetchGithubKeys {
+        username = "valmmun";
+        hash = "sha256-LlW/uj3FkJ76RGdCP+H/abH+vJSWq/5OboBy9erNNew=";
+      })
     ];
   };
 
@@ -161,6 +180,8 @@ in {
     ncdu
     nvtopPackages.full
     distrobox
+    duf
+    dua
     (pkgs.writeShellScriptBin "nixos-distro-sync" ''
       sudo nixos-rebuild --flake github:mvxmt/server#mvxmt switch --refresh
     '')
