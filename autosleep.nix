@@ -5,8 +5,8 @@
 in {
   services.cron = {
     enable = true;
-    systemCronJobs = ''
-      0 2 * * *
-    '';
+    systemCronJobs = [
+      "0 2 * * *"
+    ];
   };
 }
