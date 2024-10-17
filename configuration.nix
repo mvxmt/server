@@ -129,7 +129,7 @@ in {
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "Tyler";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = ["networkmanager" "wheel" "docker" "caddy"];
     openssh.authorizedKeys.keyFiles = [
       (libt.fetchGithubKeys {
         username = "ninjawarrior1337";
@@ -233,6 +233,8 @@ in {
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
     22
+    80
+    443
     11434
     3000
   ];
