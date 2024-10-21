@@ -121,7 +121,7 @@ in {
     openssh.authorizedKeys.keyFiles = [
       (libt.fetchGithubKeys {
         username = "valmmun";
-        hash = "sha256-LlW/uj3FkJ76RGdCP+H/abH+vJSWq/5OboBy9erNNew=";
+        hash = "sha256-uQ+cHt9dKaYPoOtopKd8a0jgbFkOrgr6FYKnkWXrlKA=";
       })
     ];
   };
