@@ -29,6 +29,6 @@
     5900
   ];
 
-  virtualisation.spiceUSPRedirection.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
   programs.virt-manager.enable = true;
 }
