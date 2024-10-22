@@ -1,0 +1,32 @@
+{pkgs}: {
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = true;
+  };
+
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu.ovmf = {
+      enable = true;
+      packages = [
+        (pkgs.OVMF.override {
+          secureBoot = true;
+          tpmSupport = true;
+        })
+        .fd
+      ];
+    };
+    swtpm.enable = true;
+  };
+  environment.systemPackages = with pkgs; [
+    virt-manager
+  ];
+
+  # Spice
+  networking.firewall.allowedTCPPorts = [
+    5900
+  ];
+
+  virtualisation.spiceUSPRedirection.enable = true;
+  programs.virt-manager.enable = true;
+}

@@ -12,6 +12,7 @@ in {
     ./postgres.nix
     ./autosleep.nix
     ./caddy.nix
+    ./virtualization.nix
   ];
 
   # Bootloader.
@@ -130,7 +131,7 @@ in {
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "Tyler";
-    extraGroups = ["networkmanager" "wheel" "docker" "caddy"];
+    extraGroups = ["networkmanager" "wheel" "docker" "libvirtd"];
     openssh.authorizedKeys.keyFiles = [
       (libt.fetchGithubKeys {
         username = "ninjawarrior1337";
@@ -190,11 +191,6 @@ in {
       sudo nixos-rebuild --flake github:mvxmt/server#mvxmt switch --refresh
     '')
   ];
-
-  virtualisation.docker = {
-    enable = true;
-    enableOnBoot = true;
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
