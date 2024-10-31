@@ -97,11 +97,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1730166068,
-        "narHash": "sha256-d2JqRfZiSTYtXaz0yn+2OJ6ZOW/j+jV3E2debmaTy2o=",
+        "lastModified": 1730406778,
+        "narHash": "sha256-iqmhccHnfPLtoAwDlTVWycM6KaKc3w53cNoiH0XBmoc=",
         "owner": "ninjawarrior1337",
         "repo": "treelarv3",
-        "rev": "99f87dd17009e150471f18510d1c6d19994c0908",
+        "rev": "9e68ddca6f220128d0a14c24ad3fa811dcdc21f7",
         "type": "github"
       },
       "original": {
