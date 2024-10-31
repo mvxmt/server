@@ -12,7 +12,7 @@ in {
     ./postgres.nix
     ./autosleep.nix
     ./caddy.nix
-    # ./virtualization.nix
+    ./virtualization.nix
     ./vault.nix
   ];
 
