@@ -1,7 +1,7 @@
 {
   description = "A template that shows all standard flake outputs";
 
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
   inputs.treelarv3.url = "github:ninjawarrior1337/treelarv3";
   inputs.treelarv3.inputs.nixpkgs.follows = "nixpkgs";
