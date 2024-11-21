@@ -229,13 +229,16 @@ in {
     };
   };
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    22
-    80
-    443
-    11434
-    3000
-  ];
+  networking.firewall = {
+    allowedTCPPorts = [
+      22
+      80
+      443
+      11434
+      3000
+    ];
+    extraCommands = "iptables -A INPUT -p tcp --destination-port 3306 -s 172.16.0.0/12 -j ACCEPT";
+  };
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
