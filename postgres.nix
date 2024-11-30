@@ -13,7 +13,7 @@
       # ssl_cert_file = "${credsDir}/cert.pem";
       # ssl_key_file = "${credsDir}/key.pem";
     };
-    extraPlugins = ps: with ps; [postgis pg_repack pgvector];
+    extensions = ps: with ps; [postgis pg_repack pgvector];
     authentication = ''
       # TYPE  DATABASE        USER            ADDRESS                 METHOD
       # "local" is for Unix domain socket connections only
