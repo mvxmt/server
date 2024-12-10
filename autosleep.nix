@@ -10,10 +10,22 @@
     '';
   };
 in {
-  services.cron = {
-    enable = true;
-    systemCronJobs = [
-      "0 2 * * * ${sleepScript}/bin/sleep-wake-at"
-    ];
+  systemd.timers."auto-sleep" = {
+    wantedBy = ["timers.target"];
+    timerConfig = {
+      OnCalendar = "*-*-* 2:00:00";
+      Unit = "auto-sleep.service";
+    };
+  };
+
+  systemd.services."auto-sleep" = {
+    script = ''
+      set -eu
+      ${sleepScript}/bin/sleep-wake-at"
+    '';
+    serviceConfig = {
+      Type = "oneshot";
+      User = "root";
+    };
   };
 }
