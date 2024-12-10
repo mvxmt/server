@@ -21,7 +21,7 @@ in {
   systemd.services."auto-sleep" = {
     script = ''
       set -eu
-      ${sleepScript}/bin/sleep-wake-at"
+      ${sleepScript}/bin/sleep-wake-at
     '';
     serviceConfig = {
       Type = "oneshot";
