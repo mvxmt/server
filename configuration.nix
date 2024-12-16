@@ -117,7 +117,6 @@ in {
 
   users.users.valmm = {
     isNormalUser = true;
-    shell = pkgs.zsh;
     description = "Valerie";
     extraGroups = ["networkmanager" "wheel" "docker"];
     openssh.authorizedKeys.keyFiles = [
