@@ -4,7 +4,6 @@
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
   inputs.treelarv3.url = "github:ninjawarrior1337/treelarv3";
-  inputs.treelarv3.inputs.nixpkgs.follows = "nixpkgs";
 
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
