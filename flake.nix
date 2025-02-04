@@ -2,9 +2,6 @@
   description = "A template that shows all standard flake outputs";
 
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-
-  inputs.treelarv3.url = "github:ninjawarrior1337/treelarv3";
-
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
   outputs = all @ {
@@ -21,12 +18,7 @@
       nixosConfigurations.mvxmt = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          treelarv3.nixosModules.default
           ./configuration.nix
-
-          {
-            services.treelarv3.enable = true;
-          }
         ];
       };
     }
