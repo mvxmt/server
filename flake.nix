@@ -1,5 +1,5 @@
 {
-  description = "A template that shows all standard flake outputs";
+  description = "mvxmt flake def";
 
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
   inputs.flake-utils.url = "github:numtide/flake-utils";
