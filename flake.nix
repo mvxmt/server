@@ -7,14 +7,10 @@
   outputs = all @ {
     self,
     nixpkgs,
-    treelarv3,
     flake-utils,
     ...
   }:
     {
-      # Used with `nixos-rebuild --flake .#<hostname>`
-      # nixosConfigurations."<hostname>".config.system.build.toplevel must be a derivation
-
       nixosConfigurations.mvxmt = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
