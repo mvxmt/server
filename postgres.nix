@@ -28,4 +28,14 @@
       host all all all scram-sha-256
     '';
   };
+
+  services.pgadmin = {
+    enable = true;
+    settings = {
+      DEFAULT_SERVER = "0.0.0.0";
+      DEFAULT_BINARY_PATHS = {
+        "pg-16" = "${config.services.postgresql.package}/bin";
+      };
+    };
+  };
 }
