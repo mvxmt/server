@@ -17,31 +17,9 @@
     };
   };
 
-  virtualisation.libvirtd = {
+  virtualisation.lxd = {
     enable = true;
-    qemu = {
-      swtpm.enable = true;
-      ovmf = {
-        enable = true;
-        packages = [
-          (pkgs.OVMF.override {
-            secureBoot = true;
-            tpmSupport = true;
-          })
-          .fd
-        ];
-      };
-    };
+    ui.enable = true;
+    recommendedSysctlSettings = true;
   };
-  environment.systemPackages = with pkgs; [
-    virt-manager
-  ];
-
-  # Spice
-  networking.firewall.allowedTCPPorts = [
-    5900
-  ];
-
-  virtualisation.spiceUSBRedirection.enable = true;
-  programs.virt-manager.enable = true;
 }

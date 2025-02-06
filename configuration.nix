@@ -191,6 +191,15 @@ in {
     (pkgs.writeShellScriptBin "nixos-distro-sync" ''
       sudo nixos-rebuild --flake github:mvxmt/server#mvxmt switch --refresh
     '')
+    openssl
+    psmisc
+    smartmontools
+    usbutils
+    fio
+    aria2
+    testdisk
+    dig
+    atop
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
