@@ -8,7 +8,7 @@
     };
     extraAppsEnable = true;
 
-    config.adminpassFile = pkgs.writeFile "nextcloud-admin-pass" "&EYv#f83t$W4";
+    config.adminpassFile = pkgs.writeText "nextcloud-admin-pass" "&EYv#f83t$W4";
     config.dbtype = "sqlite";
   };
 }
