@@ -31,6 +31,8 @@
 
   services.pgadmin = {
     enable = true;
+    initialEmail = "admin@admin.com";
+    initialPasswordFile = pkgs.writeText "pgadminpwfile" "hahalmao";
     settings = {
       DEFAULT_SERVER = "0.0.0.0";
       DEFAULT_BINARY_PATHS = {
