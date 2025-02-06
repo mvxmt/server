@@ -189,7 +189,7 @@ in {
     certbot
     lego
     (pkgs.writeShellScriptBin "nixos-distro-sync" ''
-      sudo nixos-rebuild --flake github:mvxmt/server#mvxmt boot --refresh
+      sudo nixos-rebuild --flake github:mvxmt/server#mvxmt switch --refresh
     '')
   ];
 
