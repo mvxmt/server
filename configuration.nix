@@ -14,6 +14,7 @@ in {
     ./caddy.nix
     ./virtualization.nix
     ./vault.nix
+    ./nextcloud.nix
   ];
 
   # Bootloader.
