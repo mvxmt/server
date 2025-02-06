@@ -1,4 +1,4 @@
-{pkgs, config}: {
+{pkgs, config, ...}: {
   services.nextcloud = {                
     enable = true;                   
     package = pkgs.nextcloud28;
