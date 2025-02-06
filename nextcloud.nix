@@ -1,7 +1,7 @@
 {pkgs, config, ...}: {
   services.nextcloud = {                
     enable = true;                   
-    package = pkgs.nextcloud28;
+    package = pkgs.nextcloud30;
     hostName = "mvxmt.tail8d155b.ts.net";
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps) calendar tasks;
