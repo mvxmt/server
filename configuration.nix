@@ -99,7 +99,7 @@ in {
     openssh.authorizedKeys.keyFiles = [
       (libt.fetchGithubKeys {
         username = "Plixelated";
-        hash = "sha256-ff4A0dwzoXgoYlJiDIRJ0/tz2CdG/RtNVNA6xWiV6Fg=";
+        hash = "sha256-T+l51jgzN369eS15r/PO5wwWXLnikuBLgMaM1Xs6dno=";
       })
     ];
   };
@@ -136,7 +136,7 @@ in {
     openssh.authorizedKeys.keyFiles = [
       (libt.fetchGithubKeys {
         username = "ninjawarrior1337";
-        hash = "sha256-yJk7+zm/hi5K1ewmmARMo0cuzGxDnpHUhyy2grlFFWE=";
+        hash = "sha256-N4yuLBbB50OxgyezgLUYXiEzkMZrtiogAPV2ufqa6sk=";
       })
     ];
   };
